@@ -1,0 +1,28 @@
+{
+    "name": "feedback2me-server",
+    "version": "0.0.1",
+    "description": "Feedback Server application",
+    "main": "src/app.js",
+    "repository": "https://github.com/feedback2me/feedback2meServer.git",
+    "author": "Burak Buruk <burak.bburuk@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "nodemon src/app.js --watch server",
+        "build": "node src/app.js",
+        "lint": "eslint src/"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.1.0",
+        "eslint": "^7.0.0",
+        "eslint-config-airbnb-base": "^14.1.0",
+        "eslint-plugin-import": "^2.20.2",
+        "nodemon": "^2.0.3",
+        "prettier": "^2.0.5"
+    },
+    "dependencies": {
+        "compression": "^1.7.4",
+        "express": "^4.17.1",
+        "helmet": "^3.22.0",
+        "winston": "^3.2.1"
+    }
+}
