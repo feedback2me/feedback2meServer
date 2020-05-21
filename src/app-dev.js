@@ -4,6 +4,7 @@ import 'regenerator-runtime/runtime';
 import express from 'express';
 import compression from 'compression';
 import helmet from 'helmet';
+import path from 'path';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpack from 'webpack';
 // eslint-disable-next-line import/no-extraneous-dependencies
@@ -30,7 +31,7 @@ app.use(
 app.use(webpackHotMiddleware(compiler));
 
 // investigate this
-app.use(express.static('./public'));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.use(helmet());
 app.use(compression());
@@ -38,7 +39,7 @@ app.use(express.json());
 
 api(app);
 
-app.get('/', (req, res) => res.send('Home page!'));
+app.get('/', (req, res) => res.send('Home page'));
 
 const port = process.env.PORT || 8080;
 const ROOT_URL = `http://localhost:${port}`;

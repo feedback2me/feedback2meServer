@@ -1,13 +1,9 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const nodeExternals = require('webpack-node-externals');
-
 module.exports = {
     target: 'node',
     node: {
         __dirname: false,
         __filename: false,
     },
-    externals: [nodeExternals()],
     module: {
         rules: [
             {
@@ -20,5 +16,4 @@ module.exports = {
             },
         ],
     },
-    plugins: [],
 };

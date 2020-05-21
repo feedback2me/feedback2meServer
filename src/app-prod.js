@@ -4,13 +4,14 @@ import 'regenerator-runtime/runtime';
 import express from 'express';
 import compression from 'compression';
 import helmet from 'helmet';
+import path from 'path';
 
 import api from './api';
 import logger from './logger';
 
 const app = express();
 
-app.use(express.static('./public'));
+app.use(express.static(path.join(__dirname, '../public')));
 app.use(helmet());
 app.use(compression());
 app.use(express.json());
