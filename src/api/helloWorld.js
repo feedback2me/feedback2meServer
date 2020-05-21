@@ -1,5 +1,5 @@
-const express = require('express');
-const logger = require('../logger');
+import express from 'express';
+import logger from '../logger';
 
 const router = express.Router();
 
@@ -14,7 +14,7 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const message = { message: 'Hello World' };
+        const message = { message: 'Hello World -- Burak Buruk v2' };
         logger.info(message);
 
         res.json(message);
@@ -23,4 +23,4 @@ router.get('/', async (req, res) => {
     }
 });
 
-module.exports = router;
+export default router;

@@ -7,24 +7,39 @@
     "author": "Burak Buruk <burak.bburuk@gmail.com>",
     "license": "MIT",
     "scripts": {
-        "start": "nodemon src/app.js --watch server",
-        "build": "node src/app.js",
+        "start": "babel-watch ./src/app-dev.js",
+        "build": "rimraf build && webpack --config config/webpack.config.js --mode production",
+        "build-image": "docker build . -t feedback2me-server",
+        "run-image": "docker run -p 8080:8080 feedback2me-server",
         "lint": "eslint src/",
         "test": "jest"
     },
     "devDependencies": {
+        "@babel/core": "^7.9.6",
+        "@babel/plugin-transform-runtime": "^7.9.6",
+        "@babel/preset-env": "^7.9.6",
         "babel-eslint": "^10.1.0",
+        "babel-loader": "^8.1.0",
+        "babel-watch": "^7.0.0",
         "eslint": "^7.0.0",
         "eslint-config-airbnb-base": "^14.1.0",
         "eslint-plugin-import": "^2.20.2",
         "jest": "^26.0.1",
-        "nodemon": "^2.0.3",
-        "prettier": "^2.0.5"
+        "prettier": "^2.0.5",
+        "rimraf": "^3.0.2",
+        "webpack": "^4.43.0",
+        "webpack-cli": "^3.3.11",
+        "webpack-dev-middleware": "^3.7.2",
+        "webpack-hot-middleware": "^2.25.0",
+        "webpack-node-externals": "^1.7.2"
     },
     "dependencies": {
+        "@babel/runtime": "^7.9.6",
         "compression": "^1.7.4",
+        "core-js": "^3.6.5",
         "express": "^4.17.1",
         "helmet": "^3.22.0",
+        "regenerator-runtime": "^0.13.5",
         "winston": "^3.2.1"
     }
 }

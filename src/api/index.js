@@ -1,7 +1,7 @@
-const helloWorldApi = require('./helloWorld');
+import helloWorldApi from './helloWorld';
 
 function api(server) {
     server.use('/api/v1/hello-world', helloWorldApi);
 }
 
-module.exports = api;
+export default api;
