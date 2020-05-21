@@ -1,5 +1,6 @@
 import 'core-js/stable';
 import 'regenerator-runtime/runtime';
+
 import express from 'express';
 import compression from 'compression';
 import helmet from 'helmet';
@@ -9,18 +10,12 @@ import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackConfigJs from '../config/webpack.config';
+import config from '../config/webpack.dev';
 
 import api from './api';
 import logger from './logger';
 
 const app = express();
-
-const config = webpackConfigJs({}, { mode: 'production' });
-config.entry.unshift('webpack-hot-middleware/client?reload=true&timeout=1000');
-
-// Add HMR plugin
-config.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 const compiler = webpack(config);
 
