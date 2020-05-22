@@ -6,10 +6,8 @@ Dockerfile
 
 .git
 .gitignore
-.eslintrc.js
 .prettierrc
 
 README.md
-jest.config.js
 changelog.md
 yarn-error.log
